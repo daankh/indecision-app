@@ -19,7 +19,7 @@ class App extends Component {
     });
   };
 
-  handleFormSubmit = (e) => {
+  handleAddOption = (e) => {
     e.preventDefault();
     const option = e.target.elements.option.value;
 
@@ -76,7 +76,7 @@ class App extends Component {
           <Options options={options} handleRemoveItem={this.handleRemoveItem} />
         ) : null}
         <AddOption
-          handleFormSubmit={this.handleFormSubmit}
+          handleAddOption={this.handleAddOption}
           handleInputChange={this.handleInputChange}
           inputText={inputText}
         />

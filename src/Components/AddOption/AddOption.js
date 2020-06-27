@@ -2,10 +2,10 @@ import React, { Component } from "react";
 
 class AddOption extends Component {
   render() {
-    const { handleFormSubmit, handleInputChange, inputText } = this.props;
+    const { handleAddOption, handleInputChange, inputText } = this.props;
 
     return (
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleAddOption}>
         <input
           type="text"
           name="option"
