@@ -2,15 +2,15 @@ import React, { Component } from "react";
 
 class AddOption extends Component {
   render() {
-    const { onFormSubmit, onChangeHandler, inputText } = this.props;
+    const { handleFormSubmit, handleInputChange, inputText } = this.props;
 
     return (
-      <form onSubmit={onFormSubmit}>
+      <form onSubmit={handleFormSubmit}>
         <input
           type="text"
           name="option"
           value={inputText}
-          onChange={onChangeHandler}
+          onChange={handleInputChange}
         />
         <button>Add option</button>
       </form>

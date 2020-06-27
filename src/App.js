@@ -12,14 +12,14 @@ class App extends Component {
     inputText: "",
   };
 
-  onChangeHandler = (e) => {
+  handleInputChange = (e) => {
     const { value } = e.target;
     this.setState({
       inputText: value,
     });
   };
 
-  onFormSubmit = (e) => {
+  handleFormSubmit = (e) => {
     e.preventDefault();
     const option = e.target.elements.option.value;
 
@@ -36,7 +36,7 @@ class App extends Component {
     });
   };
 
-  onMakeDecision = () => {
+  handleMakeDecision = () => {
     const { options } = this.state;
     const { length } = options;
 
@@ -45,13 +45,13 @@ class App extends Component {
     alert(selectedOption);
   };
 
-  onRemoveAll = () => {
+  handleRemoveAll = () => {
     this.setState({
       options: [],
     });
   };
 
-  onRemoveItem = (index) => {
+  handleRemoveItem = (index) => {
     const { options } = this.state;
     const optionsCopy = [...options];
     optionsCopy.splice(index, 1);
@@ -69,15 +69,15 @@ class App extends Component {
         <Header title={title} subtitle={subtitle} />
         <Action
           numberOfOptions={numberOfOptions}
-          onMakeDecision={this.onMakeDecision}
-          onRemoveAll={this.onRemoveAll}
+          handleMakeDecision={this.handleMakeDecision}
+          handleRemoveAll={this.handleRemoveAll}
         />
         {numberOfOptions ? (
-          <Options options={options} onRemoveItem={this.onRemoveItem} />
+          <Options options={options} handleRemoveItem={this.handleRemoveItem} />
         ) : null}
         <AddOption
-          onFormSubmit={this.onFormSubmit}
-          onChangeHandler={this.onChangeHandler}
+          handleFormSubmit={this.handleFormSubmit}
+          handleInputChange={this.handleInputChange}
           inputText={inputText}
         />
       </div>

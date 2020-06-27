@@ -3,7 +3,7 @@ import Option from "./components/Option";
 
 class Options extends Component {
   render() {
-    const { options, onRemoveItem } = this.props;
+    const { options, handleRemoveItem } = this.props;
 
     return (
       <ol>
@@ -12,7 +12,7 @@ class Options extends Component {
             key={index}
             index={index}
             option={option}
-            onRemoveItemHandler={onRemoveItem}
+            handleRemoveItem={handleRemoveItem}
           />
         ))}
       </ol>
