@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Option from "./components/Option";
 
 class Options extends Component {
   render() {
@@ -7,7 +8,7 @@ class Options extends Component {
     return (
       <ol>
         {options.map((option, index) => (
-          <li key={index}>{option}</li>
+          <Option key={index} option={option} />
         ))}
       </ol>
     );
