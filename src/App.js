@@ -51,6 +51,15 @@ class App extends Component {
     });
   };
 
+  onRemoveItem = (index) => {
+    const { options } = this.state;
+    const optionsCopy = [...options];
+    optionsCopy.splice(index, 1);
+    this.setState({
+      options: optionsCopy,
+    });
+  };
+
   render() {
     const { title, subtitle, options, inputText } = this.state;
     const numberOfOptions = options.length;
@@ -63,7 +72,9 @@ class App extends Component {
           onMakeDecision={this.onMakeDecision}
           onRemoveAll={this.onRemoveAll}
         />
-        {numberOfOptions ? <Options options={options} /> : null}
+        {numberOfOptions ? (
+          <Options options={options} onRemoveItem={this.onRemoveItem} />
+        ) : null}
         <AddOption
           onFormSubmit={this.onFormSubmit}
           onChangeHandler={this.onChangeHandler}
