@@ -28,7 +28,7 @@ class App extends Component {
     }
 
     const { options } = this.state;
-    options.push(option);
+    options.push(option.trim());
 
     this.setState({
       options,
