@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import "./App.css";
+import Header from "./Components/Header/Header";
+import Action from "./Components/Action/Action";
+import Options from "./Components/Options/Options";
+import AddOption from "./Components/AddOption/AddOption";
 
 class App extends Component {
   state = {
@@ -54,29 +57,18 @@ class App extends Component {
 
     return (
       <div>
-        <h1>{title}</h1>
-        {subtitle && <p>{subtitle}</p>}
-        <p>{numberOfOptions ? "Here are your options" : "No options"}</p>
-        <button disabled={!numberOfOptions} onClick={this.onMakeDecision}>
-          What should I do?
-        </button>
-        <button onClick={this.onRemoveAll}>Remove all</button>
-        {numberOfOptions ? (
-          <ol>
-            {options.map((option, index) => (
-              <li key={index}>{option}</li>
-            ))}
-          </ol>
-        ) : null}
-        <form onSubmit={this.onFormSubmit}>
-          <input
-            type="text"
-            name="option"
-            value={inputText}
-            onChange={this.onChangeHandler}
-          />
-          <button>Add option</button>
-        </form>
+        <Header title={title} subtitle={subtitle} />
+        <Action
+          numberOfOptions={numberOfOptions}
+          onMakeDecision={this.onMakeDecision}
+          onRemoveAll={this.onRemoveAll}
+        />
+        {numberOfOptions ? <Options options={options} /> : null}
+        <AddOption
+          onFormSubmit={this.onFormSubmit}
+          onChangeHandler={this.onChangeHandler}
+          inputText={inputText}
+        />
       </div>
     );
   }
