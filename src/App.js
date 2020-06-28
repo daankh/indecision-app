@@ -68,17 +68,17 @@ class App extends Component {
     const title = "Indecision App";
     const subtitle = "Put your life in the hands of a computer";
     const { options, inputText } = this.state;
-    const numberOfOptions = options.length;
+    const hasOptions = !!options.length;
 
     return (
       <div>
         <Header title={title} subtitle={subtitle} />
         <Action
-          hasOptions={!!numberOfOptions}
+          hasOptions={hasOptions}
           handleMakeDecision={this.handleMakeDecision}
           handleDeleteOptions={this.handleDeleteOptions}
         />
-        {numberOfOptions ? (
+        {hasOptions ? (
           <Options
             options={options}
             handleRemoveOption={this.handleRemoveOption}
