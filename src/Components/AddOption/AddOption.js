@@ -8,12 +8,10 @@ class AddOption extends Component {
 
   handleInputChange = (e) => {
     const { value } = e.target;
-    this.setState(() => {
-      return {
-        inputText: value,
-        error: undefined,
-      };
-    });
+    this.setState(() => ({
+      inputText: value,
+      error: undefined,
+    }));
   };
 
   handleAddOption = (e) => {

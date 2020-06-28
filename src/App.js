@@ -34,11 +34,9 @@ class App extends Component {
   };
 
   handleDeleteOptions = () => {
-    this.setState(() => {
-      return {
-        options: [],
-      };
-    });
+    this.setState(() => ({
+      options: [],
+    }));
   };
 
   handleRemoveOption = (index) => {
