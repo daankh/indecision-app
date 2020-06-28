@@ -9,6 +9,33 @@ class App extends Component {
     options: this.props.options,
   };
 
+  saveOptionsInLocalStorage = (options) => {
+    localStorage.setItem("options", JSON.stringify(options));
+  };
+
+  getOptionsFromLocalStorage = () =>
+    JSON.parse(localStorage.getItem("options"));
+
+  componentDidMount() {
+    console.log("fetching data");
+    const storedOptions = this.getOptionsFromLocalStorage();
+    if (storedOptions) {
+      this.setState(() => ({ options: storedOptions }));
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("saving data");
+    const { options } = this.state;
+    if (options !== prevState.options) {
+      this.saveOptionsInLocalStorage(options);
+    }
+  }
+
+  componentWillUnmount() {
+    console.log("component will unmount");
+  }
+
   handleAddOption = (option) => {
     if (!option) {
       return "Enter valid value to add item";
