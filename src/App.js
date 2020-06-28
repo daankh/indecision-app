@@ -7,32 +7,14 @@ import AddOption from "./Components/AddOption/AddOption";
 class App extends Component {
   state = {
     options: [],
-    inputText: "",
   };
 
-  handleInputChange = (e) => {
-    const { value } = e.target;
-    this.setState(() => {
-      return {
-        inputText: value,
-      };
-    });
-  };
-
-  handleAddOption = (e) => {
-    e.preventDefault();
-    const option = e.target.elements.option.value;
-
-    if (!option) {
-      return;
-    }
-
+  handleAddOption = (option) => {
     this.setState((prevState) => {
       const options = [...prevState.options];
       options.push(option.trim());
       return {
         options,
-        inputText: "",
       };
     });
   };
@@ -67,7 +49,7 @@ class App extends Component {
   render() {
     const title = "Indecision App";
     const subtitle = "Put your life in the hands of a computer";
-    const { options, inputText } = this.state;
+    const { options } = this.state;
     const hasOptions = !!options.length;
 
     return (
@@ -84,11 +66,7 @@ class App extends Component {
             handleRemoveOption={this.handleRemoveOption}
           />
         ) : null}
-        <AddOption
-          handleAddOption={this.handleAddOption}
-          handleInputChange={this.handleInputChange}
-          inputText={inputText}
-        />
+        <AddOption handleAddOption={this.handleAddOption} />
       </div>
     );
   }
