@@ -9,4 +9,8 @@ const Header = ({ title, subtitle }) => {
   );
 };
 
+Header.defaultProps = {
+  title: "Indecision",
+};
+
 export default Header;

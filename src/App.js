@@ -6,7 +6,7 @@ import AddOption from "./Components/AddOption/AddOption";
 
 class App extends Component {
   state = {
-    options: [],
+    options: this.props.options,
   };
 
   handleAddOption = (option) => {
@@ -52,14 +52,13 @@ class App extends Component {
   };
 
   render() {
-    const title = "Indecision App";
     const subtitle = "Put your life in the hands of a computer";
     const { options } = this.state;
     const hasOptions = !!options.length;
 
     return (
       <div>
-        <Header title={title} subtitle={subtitle} />
+        <Header subtitle={subtitle} />
         <Action
           hasOptions={hasOptions}
           handleMakeDecision={this.handleMakeDecision}
@@ -76,5 +75,9 @@ class App extends Component {
     );
   }
 }
+
+App.defaultProps = {
+  options: [],
+};
 
 export default App;
