@@ -14,8 +14,10 @@ class App extends Component {
 
   handleInputChange = (e) => {
     const { value } = e.target;
-    this.setState({
-      inputText: value,
+    this.setState(() => {
+      return {
+        inputText: value,
+      };
     });
   };
 
@@ -27,12 +29,13 @@ class App extends Component {
       return;
     }
 
-    const { options } = this.state;
-    options.push(option.trim());
-
-    this.setState({
-      options,
-      inputText: "",
+    this.setState((prevState) => {
+      const options = [...prevState.options];
+      options.push(option.trim());
+      return {
+        options,
+        inputText: "",
+      };
     });
   };
 
@@ -46,17 +49,20 @@ class App extends Component {
   };
 
   handleRemoveAll = () => {
-    this.setState({
-      options: [],
+    this.setState(() => {
+      return {
+        options: [],
+      };
     });
   };
 
   handleRemoveItem = (index) => {
-    const { options } = this.state;
-    const optionsCopy = [...options];
-    optionsCopy.splice(index, 1);
-    this.setState({
-      options: optionsCopy,
+    this.setState((prevState) => {
+      const options = [...prevState.options];
+      options.splice(index, 1);
+      return {
+        options,
+      };
     });
   };
 
