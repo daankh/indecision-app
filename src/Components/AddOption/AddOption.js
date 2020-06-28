@@ -3,6 +3,7 @@ import React, { Component } from "react";
 class AddOption extends Component {
   state = {
     inputText: "",
+    error: undefined,
   };
 
   handleInputChange = (e) => {
@@ -10,6 +11,7 @@ class AddOption extends Component {
     this.setState(() => {
       return {
         inputText: value,
+        error: undefined,
       };
     });
   };
@@ -18,26 +20,34 @@ class AddOption extends Component {
     e.preventDefault();
     const option = e.target.elements.option.value;
 
-    if (option) {
-      this.props.handleAddOption(option);
+    const error = this.props.handleAddOption(option);
+    if (!error) {
       this.setState({
         inputText: "",
+        error: undefined,
+      });
+    } else {
+      this.setState({
+        error,
       });
     }
   };
 
   render() {
-    const { inputText } = this.state;
+    const { inputText, error } = this.state;
     return (
-      <form onSubmit={this.handleAddOption}>
-        <input
-          type="text"
-          name="option"
-          value={inputText}
-          onChange={this.handleInputChange}
-        />
-        <button>Add option</button>
-      </form>
+      <div>
+        {error && <p>{error}</p>}
+        <form onSubmit={this.handleAddOption}>
+          <input
+            type="text"
+            name="option"
+            value={inputText}
+            onChange={this.handleInputChange}
+          />
+          <button>Add option</button>
+        </form>
+      </div>
     );
   }
 }
