@@ -101,8 +101,4 @@ class App extends Component {
   }
 }
 
-App.defaultProps = {
-  options: [],
-};
-
 export default App;
