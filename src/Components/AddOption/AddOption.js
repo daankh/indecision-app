@@ -16,7 +16,7 @@ class AddOption extends Component {
 
   handleAddOption = (e) => {
     e.preventDefault();
-    const option = e.target.elements.option.value;
+    const option = e.target.elements.option.value.trim();
 
     const error = this.props.handleAddOption(option);
     if (!error) {

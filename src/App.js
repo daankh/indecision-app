@@ -17,7 +17,7 @@ class App extends Component {
     }
     this.setState((prevState) => {
       const options = [...prevState.options];
-      options.push(option.trim());
+      options.push(option);
       return {
         options,
       };
