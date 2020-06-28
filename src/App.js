@@ -39,7 +39,7 @@ class App extends Component {
     }));
   };
 
-  handleRemoveOption = (index) => {
+  handleDeleteOption = (index) => {
     this.setState((prevState) => {
       const options = [...prevState.options];
       options.splice(index, 1);
@@ -62,12 +62,10 @@ class App extends Component {
           handleMakeDecision={this.handleMakeDecision}
           handleDeleteOptions={this.handleDeleteOptions}
         />
-        {hasOptions ? (
-          <Options
-            options={options}
-            handleRemoveOption={this.handleRemoveOption}
-          />
-        ) : null}
+        <Options
+          options={options}
+          handleDeleteOption={this.handleDeleteOption}
+        />
         <AddOption handleAddOption={this.handleAddOption} />
       </div>
     );

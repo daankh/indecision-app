@@ -1,10 +1,10 @@
 import React from "react";
 
-const Option = ({ index, option, handleRemoveOption }) => {
+const Option = ({ option, handleDeleteOption }) => {
   return (
     <li>
       <span>{option}</span>
-      <button onClick={() => handleRemoveOption(index)}>Remove</button>
+      <button onClick={handleDeleteOption}>Remove</button>
     </li>
   );
 };

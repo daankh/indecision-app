@@ -1,18 +1,17 @@
 import React from "react";
 import Option from "./components/Option";
 
-const Options = ({ options, handleRemoveOption }) => {
+const Options = ({ options, handleDeleteOption }) => {
   return (
-    <ul>
+    <ol>
       {options.map((option, index) => (
         <Option
           key={index}
-          index={index}
           option={option}
-          handleRemoveOption={handleRemoveOption}
+          handleDeleteOption={() => handleDeleteOption(index)}
         />
       ))}
-    </ul>
+    </ol>
   );
 };
 
