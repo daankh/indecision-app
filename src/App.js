@@ -17,9 +17,13 @@ class App extends Component {
     JSON.parse(localStorage.getItem("options"));
 
   componentDidMount() {
-    const storedOptions = this.getOptionsFromLocalStorage();
-    if (storedOptions) {
-      this.setState(() => ({ options: storedOptions }));
+    try {
+      const storedOptions = this.getOptionsFromLocalStorage();
+      if (storedOptions) {
+        this.setState(() => ({ options: storedOptions }));
+      }
+    } catch (e) {
+      // do nothing at all
     }
   }
 
