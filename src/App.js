@@ -17,7 +17,6 @@ class App extends Component {
     JSON.parse(localStorage.getItem("options"));
 
   componentDidMount() {
-    console.log("fetching data");
     const storedOptions = this.getOptionsFromLocalStorage();
     if (storedOptions) {
       this.setState(() => ({ options: storedOptions }));
@@ -25,9 +24,8 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("saving data");
     const { options } = this.state;
-    if (options !== prevState.options) {
+    if (JSON.stringify(options) !== JSON.stringify(prevState.options)) {
       this.saveOptionsInLocalStorage(options);
     }
   }
