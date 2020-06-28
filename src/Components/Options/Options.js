@@ -3,7 +3,7 @@ import Option from "./components/Option";
 
 const Options = ({ options, handleRemoveOption }) => {
   return (
-    <ol>
+    <ul>
       {options.map((option, index) => (
         <Option
           key={index}
@@ -12,7 +12,7 @@ const Options = ({ options, handleRemoveOption }) => {
           handleRemoveOption={handleRemoveOption}
         />
       ))}
-    </ol>
+    </ul>
   );
 };
 
