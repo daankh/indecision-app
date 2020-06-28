@@ -2,15 +2,15 @@ import React, { Component } from "react";
 
 class Action extends Component {
   render() {
-    const { numberOfOptions, handleMakeDecision, handleRemoveAll } = this.props;
+    const { hasOptions, handleMakeDecision, handleDeleteOptions } = this.props;
 
     return (
       <div>
-        <p>{numberOfOptions ? "Here are your options" : "No options"}</p>
-        <button disabled={!numberOfOptions} onClick={handleMakeDecision}>
+        <p>{hasOptions ? "Here are your options" : "No options"}</p>
+        <button disabled={!hasOptions} onClick={handleMakeDecision}>
           What should I do?
         </button>
-        <button onClick={handleRemoveAll}>Remove all</button>
+        <button onClick={handleDeleteOptions}>Remove all</button>
       </div>
     );
   }
