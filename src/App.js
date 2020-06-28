@@ -6,7 +6,7 @@ import AddOption from "./Components/AddOption/AddOption";
 
 class App extends Component {
   state = {
-    options: this.props.options,
+    options: [],
   };
 
   saveOptionsInLocalStorage = (options) => {
