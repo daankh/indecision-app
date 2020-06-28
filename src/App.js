@@ -89,10 +89,10 @@ class App extends Component {
         <Action
           hasOptions={hasOptions}
           handleMakeDecision={this.handleMakeDecision}
-          handleDeleteOptions={this.handleDeleteOptions}
         />
         <Options
           options={options}
+          handleDeleteOptions={this.handleDeleteOptions}
           handleDeleteOption={this.handleDeleteOption}
         />
         <AddOption handleAddOption={this.handleAddOption} />
