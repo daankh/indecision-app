@@ -3,10 +3,12 @@ import Header from "./Components/Header/Header";
 import Action from "./Components/Action/Action";
 import Options from "./Components/Options/Options";
 import AddOption from "./Components/AddOption/AddOption";
+import OptionModal from "./Components/OptionModal/OptionModal";
 
 class App extends Component {
   state = {
     options: [],
+    selectedOption: undefined,
   };
 
   saveOptionsInLocalStorage = (options) => {
@@ -59,7 +61,11 @@ class App extends Component {
 
     const optionIndex = Math.floor(Math.random() * length);
     const selectedOption = options[optionIndex];
-    alert(selectedOption);
+    this.setState(() => ({ selectedOption }));
+  };
+
+  handleClearDecision = () => {
+    this.setState(() => ({ selectedOption: undefined }));
   };
 
   handleDeleteOptions = () => {
@@ -80,7 +86,7 @@ class App extends Component {
 
   render() {
     const subtitle = "Put your life in the hands of a computer";
-    const { options } = this.state;
+    const { options, selectedOption } = this.state;
     const hasOptions = !!options.length;
 
     return (
@@ -96,6 +102,10 @@ class App extends Component {
           handleDeleteOption={this.handleDeleteOption}
         />
         <AddOption handleAddOption={this.handleAddOption} />
+        <OptionModal
+          selectedOption={selectedOption}
+          handleClearDecision={this.handleClearDecision}
+        />
       </div>
     );
   }
