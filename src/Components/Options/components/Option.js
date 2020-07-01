@@ -4,7 +4,9 @@ const Option = ({ option, handleDeleteOption }) => {
   return (
     <li>
       <span>{option}</span>
-      <button onClick={handleDeleteOption}>Remove</button>
+      <button className="button button--link" onClick={handleDeleteOption}>
+        Remove
+      </button>
     </li>
   );
 };

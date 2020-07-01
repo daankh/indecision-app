@@ -4,7 +4,9 @@ import Option from "./components/Option";
 const Options = ({ options = [], handleDeleteOptions, handleDeleteOption }) => {
   return (
     <div>
-      <button onClick={handleDeleteOptions}>Remove all</button>
+      <button className="button button--link" onClick={handleDeleteOptions}>
+        Remove all
+      </button>
       {!options.length ? (
         <p>Please add an option to get started</p>
       ) : (
