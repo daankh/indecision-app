@@ -43,7 +43,7 @@ class AddOption extends Component {
             value={inputText}
             onChange={this.handleInputChange}
           />
-          <button>Add option</button>
+          <button className="button">Add option</button>
         </form>
       </div>
     );

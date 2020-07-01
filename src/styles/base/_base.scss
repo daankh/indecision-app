@@ -4,3 +4,12 @@ body {
   font-size: $m-size;
   background-color: $dark-blue;
 }
+
+button {
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
