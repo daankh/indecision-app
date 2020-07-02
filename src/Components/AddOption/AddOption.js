@@ -35,9 +35,10 @@ class AddOption extends Component {
     const { inputText, error } = this.state;
     return (
       <div>
-        {error && <p>{error}</p>}
-        <form onSubmit={this.handleAddOption}>
+        {error && <p className="add-option-error">{error}</p>}
+        <form className="add-option" onSubmit={this.handleAddOption}>
           <input
+            className="add-option__input"
             type="text"
             name="option"
             value={inputText}
