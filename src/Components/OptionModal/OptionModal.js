@@ -7,10 +7,14 @@ const OptionModal = ({ selectedOption, handleClearDecision }) => {
       isOpen={!!selectedOption}
       onRequestClose={handleClearDecision}
       contentLabel="Selected Option"
+      closeTimeoutMS={300}
+      className="modal"
     >
-      <h1>Selected Option</h1>
-      {selectedOption && <p>{selectedOption}</p>}
-      <button onClick={handleClearDecision}>Okey</button>
+      <h1 className="modal__title">Selected Option</h1>
+      {selectedOption && <p className="modal__body">{selectedOption}</p>}
+      <button className="button" onClick={handleClearDecision}>
+        Okey
+      </button>
     </Modal>
   );
 };
