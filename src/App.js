@@ -97,12 +97,14 @@ class App extends Component {
             hasOptions={hasOptions}
             handleMakeDecision={this.handleMakeDecision}
           />
-          <Options
-            options={options}
-            handleDeleteOptions={this.handleDeleteOptions}
-            handleDeleteOption={this.handleDeleteOption}
-          />
-          <AddOption handleAddOption={this.handleAddOption} />
+          <section className="widget">
+            <Options
+              options={options}
+              handleDeleteOptions={this.handleDeleteOptions}
+              handleDeleteOption={this.handleDeleteOption}
+            />
+            <AddOption handleAddOption={this.handleAddOption} />
+          </section>
         </main>
         <OptionModal
           selectedOption={selectedOption}
