@@ -1,0 +1,12 @@
+.option {
+  list-style: none;
+  padding: $l-size $m-size;
+  border-bottom: $item-border;
+  display: flex;
+  justify-content: space-between;
+
+  &__text {
+    color: #fff;
+    font-size: 2rem;
+  }
+}

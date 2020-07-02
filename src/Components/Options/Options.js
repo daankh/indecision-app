@@ -17,6 +17,7 @@ const Options = ({ options = [], handleDeleteOptions, handleDeleteOption }) => {
           {options.map((option, index) => (
             <Option
               key={index}
+              count={index + 1}
               option={option}
               handleDeleteOption={() => handleDeleteOption(index)}
             />
